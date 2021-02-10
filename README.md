@@ -33,16 +33,17 @@ Recap
 1. Generate User model and migrate
 ```
 rails g model User username:string:uniq email:string:uniq password:string
-rails db:migrate
 ```
 2. Add RSpec w/ Shoulda matchers (for validate_X_of)
 3. Rename User.password -> User.encrypted_password
 ```
 rails g migration RenamePasswordToEncryptedPasswordInUsers
-(in #change) rename_column :users, :password, :encrypted_password
+
+rename_column :users, :password, :encrypted_password
 ```
 4. Add default value for User.encrypted_password
 ```
 rails g migration AddDefaultToEncryptedPassword
-(in #change) change_column_default :users, :encrypted_password, ''
+
+change_column_default :users, :encrypted_password, ''
 ```
