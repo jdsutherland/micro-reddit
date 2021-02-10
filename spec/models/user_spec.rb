@@ -7,13 +7,7 @@ describe User do
     it { should validate_presence_of(:encrypted_password) }
 
     context 'uniqueness' do
-      before :each do
-        User.create({
-          username: 'Bob',
-          email: 'bob@example.com',
-          encrypted_password: 'password'
-        })
-      end
+      before { create(:user) }
 
       it { should validate_uniqueness_of(:username) }
       it { should validate_uniqueness_of(:email) }
