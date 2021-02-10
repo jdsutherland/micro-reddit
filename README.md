@@ -35,3 +35,4 @@ Recap
 rails g model User username:string:uniq email:string:uniq password:string
 rails db:migrate
 ```
+2. Add RSpec w/ Shoulda matchers (for validate_X_of)
