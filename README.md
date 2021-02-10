@@ -11,7 +11,7 @@ Data Model
 Users
   username:str [uniq, 4-12 chars, present]
   email:str [uniq, present]
-  password:str [6-16 chars, present]
+  encrypted_password:str [6-16 chars, present]
   has_many posts
 
 Posts
@@ -36,3 +36,8 @@ rails g model User username:string:uniq email:string:uniq password:string
 rails db:migrate
 ```
 2. Add RSpec w/ Shoulda matchers (for validate_X_of)
+3. Rename User.password -> User.encrypted_password
+```
+rails g migration RenamePasswordToEncryptedPasswordInUsers
+(in #change) rename_column :users, :password, :encrypted_password
+```
