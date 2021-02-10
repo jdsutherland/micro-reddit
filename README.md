@@ -41,3 +41,8 @@ rails db:migrate
 rails g migration RenamePasswordToEncryptedPasswordInUsers
 (in #change) rename_column :users, :password, :encrypted_password
 ```
+4. Add default value for User.encrypted_password
+```
+rails g migration AddDefaultToEncryptedPassword
+(in #change) change_column_default :users, :encrypted_password, ''
+```
