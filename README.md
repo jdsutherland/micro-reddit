@@ -1,24 +1,37 @@
-# README
+# Micro-Reddit
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A tiny version of reddit featuring link submissions and commenting. No front-end.
 
-Things you may want to cover:
+* Users do NOT need to be able to comment on comments… each comment refers to a Post
+* don’t worry about login/logout or securing the passwords right now
 
-* Ruby version
+Data Model
+----------
+```
+Users
+  username:str [uniq, 4-12 chars, present]
+  email:str [uniq, present]
+  password:str [6-16 chars, present]
+  has_many posts
 
-* System dependencies
+Posts
+  title:str [uniq, present]
+  url:str [present]
+  author_id:int [present]
+  belongs_to user
 
-* Configuration
+Comments
+  body:text [present]
+  post_id:int [uniq, present]
+  user_id:int [uniq, present]
+  belongs_to user
+  belongs_to post
+```
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Recap
+-----
+1. Generate User model and migrate
+```
+rails g model User username:string:uniq email:string:uniq password:string
+rails db:migrate
+```
