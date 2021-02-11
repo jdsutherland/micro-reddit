@@ -47,3 +47,9 @@ rails g migration AddDefaultToEncryptedPassword
 
 change_column_default :users, :encrypted_password, ''
 ```
+5. Add FactoryBot
+* add `config.include FactoryBot::Syntax::Methods` to rails_helper
+* create spec/factories.rb with factories
+
+6. Generate Post model
+rails g model Post user:references title:string:uniq url:string
