@@ -52,4 +52,7 @@ change_column_default :users, :encrypted_password, ''
 * create spec/factories.rb with factories
 
 6. Generate Post model
+```
 rails g model Post user:references title:string:uniq url:string
+```
+
