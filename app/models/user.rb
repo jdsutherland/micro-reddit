@@ -4,4 +4,5 @@ class User < ApplicationRecord
   validates :encrypted_password, presence: true
 
   has_many :posts
+  has_many :comments
 end

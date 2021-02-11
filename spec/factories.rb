@@ -26,4 +26,10 @@ FactoryBot.define do
     url
     user
   end
+
+  factory :comment do
+    body { 'lorem ipsum' }
+    user
+    post
+  end
 end
